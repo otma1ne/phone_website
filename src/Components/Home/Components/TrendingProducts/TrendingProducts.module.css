@@ -29,6 +29,24 @@
     font-size: 14px;
 }
 
+.trending_products .filtres {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.trending_products .filtres button.active {
+    background: black;
+    color: white;
+}
+
+.trending_products .view_all {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
 .trending_products .container {
     margin-top: 80px;
     display: grid;

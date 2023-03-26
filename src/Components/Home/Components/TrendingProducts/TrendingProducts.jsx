@@ -14,6 +14,14 @@ const TrendingProducts = () => {
           <h3>Trending Products</h3>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
         </div>
+        <div className={styles.filtres}>
+          <button className={`primary_btn ${styles.active}`}>
+            All Products
+          </button>
+          <button className="primary_btn">Trending Products</button>
+          <button className="primary_btn">Special Products</button>
+          <button className="primary_btn">Featured Products</button>
+        </div>
         <div className={styles.container}>
           <ProductCard2 productImg={img1} />
           <ProductCard2 productImg={img2} />
@@ -23,6 +31,9 @@ const TrendingProducts = () => {
           <ProductCard2 productImg={img4} />
           <ProductCard2 productImg={img1} />
           <ProductCard2 productImg={img2} />
+        </div>
+        <div className={styles.view_all}>
+          <button className="primary_btn">View All Products</button>
         </div>
       </div>
     </section>

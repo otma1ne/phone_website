@@ -24,14 +24,83 @@
     object-fit: contain;
 }
 
+.product_card .img_container .icons {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    bottom: 0;
+    right: -100%;
+    z-index: 3;
+    height: 100%;
+    transition: .3s ease-in-out;
+}
+
+.product_card :hover .icons {
+    right: 10px;
+}
+
+.product_card .img_container .icons .icon_container {
+    position: relative;
+    background-color: white;
+    padding: 5px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.product_card .img_container .icons .icon_container p {
+    position: absolute;
+    right: 0;
+    font-size: 12px;
+    font-weight: 600;
+    width: 0;
+    height: 0;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: right .2s ease;
+}
+
+.product_card .img_container .icons .icon_container:hover p {
+    width: max-content;
+    height: 32px;
+    right: 30px;
+}
+
+.product_card .img_container .icons .icon_container:hover {
+    background-color: black;
+}
+
+.product_card .img_container .icons .icon_container:hover svg {
+    fill: white;
+}
+
+.product_card .img_container .icons .icon_container svg {
+    fill: black;
+}
+
+
 .product_card .content {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .product_card .content p {
     font-size: 14px;
     font-weight: 500;
-    color: #55565B;
+}
+
+.product_card .content button {
+    width: 100%;
 }
