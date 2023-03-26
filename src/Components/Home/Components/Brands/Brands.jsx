@@ -12,11 +12,33 @@ const Brands = () => {
       <div className="max_width">
         <div className={styles.container}>
           <Swiper
-            spaceBetween={50}
+            spaceBetween={40}
             slidesPerView={7}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
             className={styles.swiper}
+            breakpoints={{
+              0: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+              },
+              500: {
+                slidesPerView: 3,
+              },
+              768: {
+                slidesPerView: 4,
+              },
+              900: {
+                slidesPerView: 5,
+              },
+              1200: {
+                slidesPerView: 6,
+              },
+              1400: {
+                slidesPerView: 7,
+                spaceBetween: 40,
+              },
+            }}
           >
             <SwiperSlide className={styles.swiper_item}>
               <img src={brand2} alt="" />

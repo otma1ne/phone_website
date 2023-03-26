@@ -1,5 +1,5 @@
 footer {
-    padding-top: 80px ;
+    padding-top: 80px;
 }
 
 footer .sub_footer {
@@ -88,7 +88,7 @@ footer .sub_footer .item .follow_us .icons svg {
     cursor: pointer;
 }
 
-footer .footer{
+footer .footer {
     border-top: 1px solid #ededed;
     margin-top: 40px;
     font-size: 12px;
@@ -96,4 +96,16 @@ footer .footer{
     padding: 25px 0;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+/* Responsive styles */
+
+@media screen and (max-width: 550px) {
+
+    footer .footer {
+        justify-content: center;
+        gap: 10px;
+    }
 }

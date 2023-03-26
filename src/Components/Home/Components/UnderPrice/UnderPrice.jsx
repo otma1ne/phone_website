@@ -26,6 +26,22 @@ const UnderPrice = () => {
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
             className={styles.swiper}
+            breakpoints={{
+              // when window width is >= 0px
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 20,
+              },
+              600: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+              },
+              // when window width is >= 1200px
+              1200: {
+                slidesPerView: 2,
+                spaceBetween: 80,
+              },
+            }}
           >
             <SwiperSlide>
               <ProductCard1 productImg={productImg1} />

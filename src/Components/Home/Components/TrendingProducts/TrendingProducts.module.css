@@ -27,12 +27,14 @@
 
 .trending_products .titles p {
     font-size: 14px;
+    text-align: center;
 }
 
 .trending_products .filtres {
     margin-top: 80px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 20px;
 }
 
@@ -53,4 +55,18 @@
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
     row-gap: 40px;
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 992px) {
+    .trending_products .container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .trending_products .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

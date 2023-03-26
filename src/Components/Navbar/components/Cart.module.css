@@ -1,0 +1,46 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.cart {
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    background: white;
+    font-weight: 600;
+    transition: .3s ease-in-out;
+}
+
+.cart.active {
+    right: 0;
+}
+
+.cart .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.cart .header .title h4 {
+    font-weight: 600;
+}
+
+.cart .header .close {
+    cursor: pointer;
+    padding-top: 5px;
+}

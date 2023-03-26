@@ -7,6 +7,7 @@
     height: calc(100vh - 91px);
     background-size: cover !important;
     background-repeat: no-repeat !important;
+    background-position: center !important;
 }
 
 .hero .swiper_content {
@@ -30,4 +31,18 @@
 .hero .swiper_content .title {
     font-weight: 700;
     font-size: 60px;
+}
+
+/* responsive styles */
+
+@media only screen and (max-width: 500px) {
+
+    .hero .swiper_content {
+        padding-bottom: 160px;
+    }
+
+    .hero .swiper_content .title {
+        font-weight: 700;
+        font-size: 40px;
+    }
 }

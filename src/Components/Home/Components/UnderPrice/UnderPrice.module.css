@@ -37,3 +37,12 @@
 .under_price .container .swiper {
     width: 100% !important;
 }
+
+/* Responsive styles */
+
+@media screen and (max-width: 992px) {
+    .under_price .container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}

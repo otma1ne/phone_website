@@ -15,6 +15,11 @@
     align-items: center;
 }
 
+.nav .menu_icon {
+    display: none;
+    cursor: pointer;
+}
+
 .nav .logo {
     width: 120px;
 }
@@ -39,4 +44,73 @@
     display: flex;
     align-items: center;
     gap: 20px;
+}
+
+.nav .icons .icon_container {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav .icons .icon_container .number_container {
+    position: absolute;
+    bottom: -0px;
+    left: -3px;
+    width: 14px;
+    height: 14px;
+    background: red;
+    border-radius: 100%;
+    color: white;
+    font-size: 9px;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.nav .overlay.active {
+    display: block;
+}
+
+/* Responsive styles */
+
+@media only screen and (max-width: 992px) {
+
+    .nav .menu_icon {
+        display: block;
+    }
+
+    .nav .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        z-index: 10;
+        gap: 30px;
+        max-width: 300px;
+        flex-direction: column;
+        background: white;
+        padding: 80px 40px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        transition: .3s ease-in-out;
+    }
+
+    .nav .menu.active {
+        right: 0;
+    }
+
+    .nav .icons .icon_container:nth-child(1),
+    .nav .icons .icon_container:nth-child(2) {
+        display: none;
+    }
 }

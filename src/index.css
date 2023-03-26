@@ -12,6 +12,8 @@
 
 .max_width {
   padding: 0 140px;
+  width: 100%;
+  height: 100%;
 }
 
 /* scroll bar style */
@@ -60,4 +62,30 @@
 
 input[type="text"] {
   padding: 8px 24px;
+}
+
+/* Responsive styles */
+
+@media only screen and (max-width: 1200px) {
+  .max_width {
+    padding: 0 100px;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .max_width {
+    padding: 0 80px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .max_width {
+    padding: 0 40px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .max_width {
+    padding: 0 20px;
+  }
 }
