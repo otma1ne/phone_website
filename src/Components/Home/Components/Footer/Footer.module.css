@@ -1,0 +1,99 @@
+footer {
+    padding-top: 80px ;
+}
+
+footer .sub_footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+footer .sub_footer .item {
+    flex: 1;
+}
+
+footer .sub_footer .item .logo {
+    width: 100px;
+}
+
+footer .sub_footer .item .logo img {
+    width: 100%;
+}
+
+footer .sub_footer .item ul {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+
+footer .sub_footer .item ul li p {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+footer .sub_footer .item ul li p span {
+    font-weight: 600;
+}
+
+footer .sub_footer .item .payment_info {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .sub_footer .item .payment_info p {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+footer .sub_footer .item .payment_info .icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .sub_footer .item .input_button {
+    margin-top: 40px;
+    display: flex;
+}
+
+footer .sub_footer .item .subscribe_info {
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+footer .sub_footer .item .follow_us {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .sub_footer .item .follow_us p {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+footer .sub_footer .item .follow_us .icons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+footer .sub_footer .item .follow_us .icons svg {
+    cursor: pointer;
+}
+
+footer .footer{
+    border-top: 1px solid #ededed;
+    margin-top: 40px;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
+}

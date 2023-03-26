@@ -1,0 +1,30 @@
+.subscribe {
+    background: #f1f1f1;
+    padding: 80px;
+}
+
+
+.subscribe .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subscribe .content p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.subscribe .content .input_button {
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.subscribe .content .input_button input {
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid white;
+}

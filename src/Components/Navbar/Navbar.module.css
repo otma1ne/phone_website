@@ -1,0 +1,42 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 10;
+    background: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.nav .nav_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .logo {
+    width: 120px;
+}
+
+.nav .logo img {
+    width: 100%;
+}
+
+.nav .menu {
+    display: flex;
+    gap: 40px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.nav .menu li,
+.nav .icons svg {
+    cursor: pointer;
+}
+
+.nav .icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}

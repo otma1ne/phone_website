@@ -1,0 +1,38 @@
+.trending_products {
+    padding: 120px 0;
+}
+
+.trending_products .titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.trending_products .titles h3 {
+    position: relative;
+    font-size: 28px;
+    display: flex;
+    justify-content: center;
+}
+
+.trending_products .titles h3::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 30%;
+    height: 3px;
+    background: black;
+}
+
+.trending_products .titles p {
+    font-size: 14px;
+}
+
+.trending_products .container {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 40px;
+}

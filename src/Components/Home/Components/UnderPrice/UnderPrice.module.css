@@ -1,0 +1,39 @@
+.under_price {
+    padding: 100px 0;
+}
+
+.under_price .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+}
+
+.under_price .container .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 40px;
+}
+
+.under_price .container .content h3 {
+    position: relative;
+    font-size: 28px;
+}
+
+.under_price .container .content h3::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    width: 15%;
+    height: 3px;
+    background: black;
+}
+
+.under_price .container .content p {
+    font-size: 14px;
+    line-height: 28px;
+}
+
+.under_price .container .swiper {
+    width: 100% !important;
+}

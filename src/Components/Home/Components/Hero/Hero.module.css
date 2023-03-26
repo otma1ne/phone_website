@@ -1,0 +1,33 @@
+.hero {
+    padding-top: 91px;
+}
+
+.hero .swiper .swiper_item {
+    width: 100vw;
+    height: calc(100vh - 91px);
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+}
+
+.hero .swiper_content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    color: white;
+    padding-bottom: 100px;
+}
+
+.hero .swiper_content .sub_title {
+    font-weight: 300;
+    font-size: 14px;
+    letter-spacing: 5px;
+}
+
+.hero .swiper_content .title {
+    font-weight: 700;
+    font-size: 60px;
+}

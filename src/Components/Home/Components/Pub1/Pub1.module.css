@@ -1,0 +1,44 @@
+.pub1 .container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.pub1 .container .item {
+    position: relative;
+    padding-top: 50%;
+    background: url(../../../../assets/images/xiaomi-mix-2-smartphone-5-99-pouces-ecran-snapdr.webp);
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+.pub1 .container .item.item_two {
+    background: url(../../../../assets/images/55EA9709-zoom-10.jpg);
+    background-size: cover;
+}
+
+.pub1 .container .item .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    color: white;
+    padding-bottom: 40px;
+}
+
+.pub1 .container .item .content .sub_title {
+    font-size: 12px;
+    letter-spacing: 4px;
+}
+
+.pub1 .container .item .content .title {
+    font-size: 32px;
+    font-weight: 600;
+}

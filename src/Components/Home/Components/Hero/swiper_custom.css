@@ -1,0 +1,38 @@
+.swiper-button-next {
+    width: 30px !important;
+    height: 50px !important;
+    background: url(../../../../assets/images/right-arrow.png) !important;
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    right: 40px !important;
+}
+
+
+.swiper-button-prev {
+    width: 30px !important;
+    height: 50px !important;
+    background: url(../../../../assets/images/left-arrow.png) !important;
+    background-position: center !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    left: 40px !important;
+}
+
+.swiper-button-next:after {
+    content: "NEXT" !important;
+    color: white !important;
+    font-size: 8px !important;
+    font-family: "Montserrat", sans-serif !important;
+    padding-top: 30px !important;
+    letter-spacing: 2px !important;
+}
+
+.swiper-button-prev:after {
+    content: "PREV" !important;
+    color: white !important;
+    font-size: 8px !important;
+    font-family: "Montserrat", sans-serif !important;
+    padding-top: 30px !important;
+    letter-spacing: 2px !important;
+}
