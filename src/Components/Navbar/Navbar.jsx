@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/images/logo.jpg";
-import { ReactComponent as HeartIcon } from "../../assets/icons/search_outline.svg";
+import { ReactComponent as SearchIcon } from "../../assets/icons/search_outline.svg";
 import { ReactComponent as PersonIcon } from "../../assets/icons/user.svg";
 import { ReactComponent as BagIcon } from "../../assets/icons/shopping bag 1.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/burger_menu.svg";
-import Cart from "./components/Cart";
+import Cart from "./components/Cart/Cart";
+import Search from "./components/Search/Search";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
 
   const handleShowCart = (value) => {
     setShowCart(value);
@@ -17,6 +20,10 @@ const Navbar = () => {
 
   const handleShowMenu = (value) => {
     setShowMenu(value);
+  };
+
+  const handleShowSearch = (value) => {
+    setShowSearch(value);
   };
 
   return (
@@ -39,9 +46,9 @@ const Navbar = () => {
           >
             <MenuIcon stroke="black" />
           </div>
-          <div className={styles.logo}>
+          <Link className={styles.logo} to={"/"}>
             <img src={logo} alt="logo" />
-          </div>
+          </Link>
           <ul
             className={
               showMenu ? `${styles.menu} ${styles.active}` : styles.menu
@@ -55,8 +62,13 @@ const Navbar = () => {
             <li>Contact</li>
           </ul>
           <div className={styles.icons}>
-            <div className={styles.icon_container}>
-              <HeartIcon fill="black" width={18} />
+            <div
+              className={styles.icon_container}
+              onClick={() => {
+                handleShowSearch(true);
+              }}
+            >
+              <SearchIcon fill="black" width={18} />
             </div>
             <div className={styles.icon_container}>
               <PersonIcon fill="black" width={16} />
@@ -74,6 +86,7 @@ const Navbar = () => {
         </div>
       </div>
       <Cart showCart={showCart} handleShowCart={handleShowCart} />
+      <Search showSearch={showSearch} handleShowSearch={handleShowSearch} />
     </nav>
   );
 };

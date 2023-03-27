@@ -1,0 +1,132 @@
+.details {
+    margin-top: 91px;
+    padding-bottom: 80px;
+}
+
+.details .breadcrumb {
+    background: #f1f1f1;
+    padding: 15px 0;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.details .breadcrumb ul {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.details .breadcrumb ul li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.details .breadcrumb ul li svg {
+    padding-top: 2px;
+}
+
+.details .container {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 100px;
+}
+
+.details .container .product_imgs {
+    padding-top: 100%;
+    background-color: #f1f1f1;
+
+}
+
+.details .container .product_info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.details .container .product_info .title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.details .container .product_info .description {
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.details .container .product_info .price {
+    font-size: 20px;
+}
+
+.details .container .product_info .colors,
+.details .container .product_info .capacity {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.details .container .product_info .capacity {
+    margin-top: 10px;
+}
+
+.details .container .product_info .colors .colors_container,
+.details .container .product_info .capacity .capacity_container {
+    display: flex;
+    gap: 10px;
+}
+
+
+.details .container .product_info .colors .colors_container .color {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: black;
+    cursor: pointer;
+}
+
+.details .container .product_info .colors .colors_container .color:nth-child(2) {
+    background: #f1f1f1;
+}
+
+.details .container .product_info .colors .colors_container .color:nth-child(3) {
+    background: #1e73be;
+}
+
+.details .container .product_info .colors .colors_container .color:nth-child(4) {
+    background: red;
+}
+
+.details .container .product_info .capacity .capacity_container .cap {
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid gray;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.details .container .product_info .quantity {
+    margin: 15px 0 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.details .container .product_info .quantity .control {
+    display: flex;
+    align-items: center;
+}
+
+.details .container .product_info .quantity .control button {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid gray;
+}
+
+.details .container .product_info .quantity .control input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    border: 1px solid gray;
+}

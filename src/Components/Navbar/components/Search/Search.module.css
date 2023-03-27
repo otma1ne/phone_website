@@ -1,0 +1,36 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.overlay.active {
+    display: block;
+}
+
+.search {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100vw;
+    background: white;
+    padding: 60px 0;
+    transition: .3s ease-in-out;
+}
+
+.search.active {
+    top: 0;
+}
+
+.search .input_btn {
+    display: flex;
+    gap: 20px;
+}
+
+.search .input_btn input {
+    width: 100%;
+}

@@ -4,12 +4,15 @@ import { Rating } from "react-simple-star-rating";
 import { ReactComponent as EyeIcon } from "../../../../assets/icons/eye.svg";
 import { ReactComponent as CompareIcon } from "../../../../assets/icons/refresh.svg";
 import { ReactComponent as FavoriteIcon } from "../../../../assets/icons/favorite.svg";
+import { Link } from "react-router-dom";
 
 const ProductCard2 = ({ productImg }) => {
   return (
     <div className={styles.product_card}>
       <div className={styles.img_container}>
-        <img src={productImg} alt="Product image" />
+        <Link to={"/details"}>
+          <img src={productImg} alt="Product image" />
+        </Link>
         <div className={styles.icons}>
           <div
             className={styles.icon_container}

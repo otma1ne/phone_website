@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Cart.module.css";
-import { ReactComponent as CloseIcon } from "../../../assets/icons/cross.svg";
+import { ReactComponent as CloseIcon } from "../../../../assets/icons/cross.svg";
 
 const Cart = ({ showCart, handleShowCart }) => {
   return (
