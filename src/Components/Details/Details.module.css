@@ -34,9 +34,23 @@
 }
 
 .details .container .product_imgs {
+    position: relative;
     padding-top: 100%;
     background-color: #f1f1f1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.details .container .product_imgs img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
 }
 
 .details .container .product_info {
@@ -127,6 +141,7 @@
 .details .container .product_info .quantity .control input {
     width: 60px;
     height: 40px;
+    font-weight: 500;
     text-align: center;
     border: 1px solid gray;
 }
