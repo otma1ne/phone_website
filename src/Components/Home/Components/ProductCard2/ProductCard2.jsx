@@ -5,7 +5,8 @@ import { ReactComponent as EyeIcon } from "../../../../assets/icons/eye.svg";
 import { ReactComponent as CompareIcon } from "../../../../assets/icons/refresh.svg";
 import { ReactComponent as FavoriteIcon } from "../../../../assets/icons/favorite.svg";
 import { Link } from "react-router-dom";
-import ProductContext, { ACTIONS } from "../../../ProductContext";
+import ProductContext from "../../../../store/ProductContext";
+import { ACTIONS } from "../../../../store/Actions";
 
 const ProductCard2 = ({ product }) => {
   const productContext = useContext(ProductContext);

@@ -1,24 +1,43 @@
 import React, { useContext, useEffect, useState } from "react";
 import ProductCard2 from "../ProductCard2/ProductCard2";
 import styles from "./TrendingProducts.module.css";
-import ProductContext from "../../../ProductContext";
+import ProductContext from "../../../../store/ProductContext";
+import axios from "axios";
+import { url } from "../../../../const";
+import { ACTIONS } from "../../../../store/Actions";
 
 const TrendingProducts = () => {
   const productContext = useContext(ProductContext);
+  const products = productContext.state.products;
 
   const [filtre, setFiltre] = useState("all");
-
-  const [filtredProducts, setFiltredProducts] = useState(
-    productContext.state.products
-  );
+  const [filtredProducts, setFiltredProducts] = useState([]);
 
   useEffect(() => {
-    let filtredProducts = productContext.state.products.filter((product) => {
+    setFiltredProducts(products);
+  }, [products]);
+
+  useEffect(() => {
+    let filtredProducts = products.filter((product) => {
       if (filtre === "all") return product;
-      return product.category == filtre;
+      return product.category === filtre;
     });
     setFiltredProducts(filtredProducts);
   }, [filtre]);
+
+  useEffect(() => {
+    axios
+      .get(url + "/products")
+      .then((response) => {
+        productContext.dispatch({
+          type: ACTIONS.GET_ALL_PRODUCTS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <section className={styles.trending_products}>

@@ -1,18 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Details.module.css";
 import { ReactComponent as RightIcon } from "../../assets/icons/chevron right 1.svg";
 import { Rating } from "react-simple-star-rating";
 import { useParams } from "react-router-dom";
-import ProductContext from "../ProductContext";
+import axios from "axios";
+import { url } from "../../const";
 
 const Details = () => {
-  const productContext = useContext(ProductContext);
   let { id } = useParams();
   const [quantity, setQuantity] = useState(1);
 
-  let product = productContext.products.filter((product) => {
-    return product.id == id;
-  });
+  const [product, setProduct] = useState();
+
+  useEffect(() => {
+    axios
+      .get(url + "/products/" + id)
+      .then((response) => {
+        setProduct(response.data);
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <section className={styles.details}>
@@ -27,27 +37,27 @@ const Details = () => {
               <RightIcon height={20} />
             </li>
             <li>
-              {product[0].category}
+              {product?.category ?? ""}
               <RightIcon height={20} />
             </li>
-            <li>{product[0].title}</li>
+            <li>{product?.title ?? ""}</li>
           </ul>
         </div>
       </div>
       <div className="max_width">
         <div className={styles.container}>
           <div className={styles.product_imgs}>
-            <img src={"/assets" + product[0].image} alt="Product image" />
+            <img src={"/assets" + product?.image ?? ""} alt={"Product"} />
           </div>
           <div className={styles.product_info}>
-            <h2 className={styles.title}>{product[0].title}</h2>
+            <h2 className={styles.title}>{product?.title ?? ""}</h2>
             <Rating readonly size={15} initialValue={3.5} />
             <p className={styles.description}>
               Nam velit eius dolor sunt iure minima molestiae. Nisi laborum
               repellendus maxime repellendus architecto aut. Molestiae non
               voluptatibus aut sint rerum provident.
             </p>
-            <h2 className={styles.price}>${product[0].price}</h2>
+            <h2 className={styles.price}>${product?.price ?? ""}</h2>
             <div className={styles.colors}>
               <h5>Colors</h5>
               <div className={styles.colors_container}>

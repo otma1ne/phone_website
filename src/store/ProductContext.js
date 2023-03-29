@@ -1,22 +1,19 @@
 import { createContext, useReducer } from "react";
-import data from "../assets/data/products.json";
+import { ACTIONS } from "./Actions";
 
 export const ProductContext = createContext(null);
 
-export const ACTIONS = {
-  GET_ALL_PRODUCTS: "get-all-products",
-  ADD_TO_CART: "add-to-cart",
-  REMOVE_FROM_CART: "remove-from-cart",
-};
-
 export const ProductContextProvider = ({ children }) => {
-  let initState = data;
+  let initState = {
+    products: [],
+  };
 
   function reducer(state, action) {
     switch (action.type) {
-      case ACTIONS.ADD_TO_CART:
-        addToCart(action.payload.product);
-        break;
+      case ACTIONS.GET_ALL_PRODUCTS:
+        return (state = { ...state, products: action.payload });
+      default:
+        return state;
     }
   }
 
@@ -32,12 +29,12 @@ export const ProductContextProvider = ({ children }) => {
       });
   } */
 
-  function addToCart(product) {
+  /* function addToCart(product) {
     fetch("http://localhost:3004/products", {
       Method: "POST",
       Body: product,
     });
-  }
+  } */
 
   const [state, dispatch] = useReducer(reducer, initState);
 
