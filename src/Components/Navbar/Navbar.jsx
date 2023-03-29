@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Navbar.module.css";
 import logo from "../../assets/images/logo.jpg";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search_outline.svg";
@@ -8,11 +8,14 @@ import { ReactComponent as MenuIcon } from "../../assets/icons/burger_menu.svg";
 import Cart from "./components/Cart/Cart";
 import Search from "./components/Search/Search";
 import { Link } from "react-router-dom";
+import ProductContext from "../../store/ProductContext";
 
 const Navbar = () => {
+  const productContext = useContext(ProductContext);
   const [showCart, setShowCart] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const cartCount = productContext.state.cart.length;
 
   const handleShowCart = (value) => {
     setShowCart(value);
@@ -80,7 +83,7 @@ const Navbar = () => {
               }}
             >
               <BagIcon fill="black" width={18} />
-              <div className={styles.number_container}>2</div>
+              <div className={styles.number_container}>{cartCount}</div>
             </div>
           </div>
         </div>

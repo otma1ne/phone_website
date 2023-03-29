@@ -145,3 +145,11 @@
     text-align: center;
     border: 1px solid gray;
 }
+
+/* Responsive styles */
+
+@media only screen and (max-width: 992px) {
+    .details .container {
+        grid-template-columns: 1fr;
+    }
+}

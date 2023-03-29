@@ -12,9 +12,13 @@ const ProductCard2 = ({ product }) => {
   const productContext = useContext(ProductContext);
 
   const handleAddToCart = () => {
+    productContext.dispatch({ type: ACTIONS.ADD_TO_CART, payload: product });
+  };
+
+  const handleClickQuickView = (value) => {
     productContext.dispatch({
-      type: ACTIONS.ADD_TO_CART,
-      payload: { product: product },
+      type: ACTIONS.SHOW_MODAL,
+      payload: { isShowing: value, product },
     });
   };
 
@@ -22,13 +26,15 @@ const ProductCard2 = ({ product }) => {
     <div className={styles.product_card}>
       <div className={styles.img_container}>
         <Link to={"/details/" + product.id}>
-          <img
-            src={process.env.PUBLIC_URL + "assets" + product.image}
-            alt="Product image"
-          />
+          <img src={"/assets" + product.image} alt="Product" />
         </Link>
         <div className={styles.icons}>
-          <div className={styles.icon_container} onClick={() => {}}>
+          <div
+            className={styles.icon_container}
+            onClick={() => {
+              handleClickQuickView(true);
+            }}
+          >
             <EyeIcon width={20} />
             <p>Quick View</p>
           </div>

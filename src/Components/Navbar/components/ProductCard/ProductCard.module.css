@@ -1,0 +1,54 @@
+.card {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.card .product_img {
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .product_img img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.card .product_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+}
+
+.card .product_info .title {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.card .product_info .price {
+    font-size: 12px;
+}
+
+.card .product_info .price span {
+    font-size: 10px;
+}
+
+.card .close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+}
+
+.card .close svg {
+    cursor: pointer;
+}

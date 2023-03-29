@@ -1,28 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./Details.module.css";
 import { ReactComponent as RightIcon } from "../../assets/icons/chevron right 1.svg";
 import { Rating } from "react-simple-star-rating";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { url } from "../../const";
+import ProductContext from "../../store/ProductContext";
+import { ACTIONS } from "../../store/Actions";
 
 const Details = () => {
   let { id } = useParams();
   const [quantity, setQuantity] = useState(1);
-
   const [product, setProduct] = useState();
+  const productContext = useContext(ProductContext);
 
   useEffect(() => {
     axios
       .get(url + "/products/" + id)
       .then((response) => {
         setProduct(response.data);
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+  const handleAddToCart = () => {
+    productContext.dispatch({ type: ACTIONS.ADD_TO_CART, payload: product });
+  };
 
   return (
     <section className={styles.details}>
@@ -99,7 +104,9 @@ const Details = () => {
                 </button>
               </div>
             </div>
-            <button className="secondary_btn">Add To Cart</button>
+            <button className="secondary_btn" onClick={handleAddToCart}>
+              Add To Cart
+            </button>
           </div>
         </div>
       </div>
