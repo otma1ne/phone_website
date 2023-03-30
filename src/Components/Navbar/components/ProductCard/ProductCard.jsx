@@ -3,15 +3,24 @@ import styles from "./ProductCard.module.css";
 import { ReactComponent as CloseIcon } from "../../../../assets/icons/cross.svg";
 import ProductContext from "../../../../store/ProductContext";
 import { ACTIONS } from "../../../../store/Actions";
+import axios from "axios";
+import { url } from "../../../../const";
 
 const ProductCard = ({ product }) => {
   const productContext = useContext(ProductContext);
 
   const handleRemoveClick = () => {
-    productContext.dispatch({
-      type: ACTIONS.REMOVE_FROM_CART,
-      payload: product.id,
-    });
+    axios
+      .delete(url + "/cart/" + product.id)
+      .then((response) => {
+        productContext.dispatch({
+          type: ACTIONS.REMOVE_FROM_CART,
+          payload: product.id,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className={styles.card}>

@@ -1,6 +1,5 @@
 import { createContext, useReducer } from "react";
 import { ACTIONS } from "./Actions";
-import { url } from "../const";
 
 export const ProductContext = createContext(null);
 
