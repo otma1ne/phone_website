@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styles from "./Navbar.module.css";
-import logo from "../../assets/images/logo.jpg";
+import logo from "../../assets/images/logo.png";
 import { ReactComponent as SearchIcon } from "../../assets/icons/search_outline.svg";
 import { ReactComponent as PersonIcon } from "../../assets/icons/user.svg";
 import { ReactComponent as BagIcon } from "../../assets/icons/shopping bag 1.svg";

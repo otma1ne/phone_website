@@ -1,11 +1,10 @@
 import React from "react";
 import styles from "./Footer.module.css";
-import logo from "../../../../assets/images/logo.jpg";
+import logo from "../../../../assets/images/logo.png";
 import { ReactComponent as FbIcon } from "../../../../assets/icons/Facebook - Original.svg";
 import { ReactComponent as TwitterIcon } from "../../../../assets/icons/Vector.svg";
 import { ReactComponent as PintrestIcon } from "../../../../assets/icons/Pinterest - Original.svg";
 import { ReactComponent as YoutubeIcon } from "../../../../assets/icons/YouTube - Original.svg";
-
 import { ReactComponent as VisaIcon } from "../../../../assets/icons/visa.svg";
 import { ReactComponent as IpayIcon } from "../../../../assets/icons/ipay.svg";
 import { ReactComponent as MasterIcon } from "../../../../assets/icons/MasterCard.svg";
@@ -109,8 +108,8 @@ const Footer = () => {
           </div>
         </div>
         <div className={styles.footer}>
-            <p>© 2023, Made with pasion by Otmane</p>
-            <p>All rights reserved by Otmane</p>
+          <p>© 2023, Made with pasion by Otmane</p>
+          <p>All rights reserved by Otmane</p>
         </div>
       </div>
     </footer>

@@ -176,5 +176,30 @@
       "category": "Featured Products"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": 6,
+      "title": "Apple iPhone 11",
+      "image": "/images/products/iphone/iphone3.png",
+      "price": 760,
+      "category": "Featured Products",
+      "quantity": 3
+    },
+    {
+      "id": 3,
+      "title": "Sony WH-CH510",
+      "image": "/images/products/headphone/headphone2.png",
+      "price": 265,
+      "category": "Special Products",
+      "quantity": 1
+    },
+    {
+      "id": 4,
+      "title": "Apple iPhone 11",
+      "image": "/images/products/iphone/iphone2.png",
+      "price": 850,
+      "category": "Special Products",
+      "quantity": 1
+    }
+  ]
 }

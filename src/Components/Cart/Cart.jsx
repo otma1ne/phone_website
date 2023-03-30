@@ -5,6 +5,9 @@ import { useContext } from "react";
 import ProductContext from "../../store/ProductContext";
 import { ReactComponent as EmptyCartIcon } from "../../assets/icons/empty_cart.svg";
 import { useNavigate } from "react-router-dom";
+import { ACTIONS } from "../../store/Actions";
+import axios from "axios";
+import { url } from "../../const";
 
 const Cart = () => {
   const productContext = useContext(ProductContext);
@@ -17,6 +20,30 @@ const Cart = () => {
       totalPrice += cart[i].quantity * cart[i].price;
     }
     return totalPrice;
+  };
+
+  const handleChangeQuantity = (type, product) => {
+    console.log(product.quantity);
+    if (
+      (type === "add" && product.quantity > 0) ||
+      (type === "remove" && product.quantity > 1)
+    ) {
+      const updateProduct = {
+        ...product,
+        quantity: type === "add" ? product.quantity + 1 : product.quantity - 1,
+      };
+      axios
+        .put(url + "/cart/" + product.id, updateProduct)
+        .then((response) => {
+          productContext.dispatch({
+            type: ACTIONS.ADD_TO_CART,
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   const handleToHome = () => {
@@ -48,7 +75,7 @@ const Cart = () => {
               <div className={styles.products_body}>
                 {cart.map((product) => {
                   return (
-                    <div className={styles.product}>
+                    <div className={styles.product} key={product.id}>
                       <div className={styles.product_details}>
                         <div className={styles.product_img}>
                           <img src={"./assets" + product.image} alt="" />
@@ -60,13 +87,27 @@ const Cart = () => {
                       </div>
                       <div className={styles.quantity}>
                         <div className={styles.control}>
-                          <button className="primary_btn">-</button>
+                          <button
+                            className="primary_btn"
+                            onClick={() => {
+                              handleChangeQuantity("remove", product);
+                            }}
+                          >
+                            -
+                          </button>
                           <input
                             type="text"
                             readOnly
                             value={product.quantity}
                           />
-                          <button className="primary_btn">+</button>
+                          <button
+                            className="primary_btn"
+                            onClick={() => {
+                              handleChangeQuantity("add", product);
+                            }}
+                          >
+                            +
+                          </button>
                         </div>
                       </div>
                     </div>
