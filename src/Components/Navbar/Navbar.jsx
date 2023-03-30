@@ -5,10 +5,14 @@ import { ReactComponent as SearchIcon } from "../../assets/icons/search_outline.
 import { ReactComponent as PersonIcon } from "../../assets/icons/user.svg";
 import { ReactComponent as BagIcon } from "../../assets/icons/shopping bag 1.svg";
 import { ReactComponent as MenuIcon } from "../../assets/icons/burger_menu.svg";
-import Cart from "./components/Cart/Cart";
+import CartSideBar from "./components/CartSideBar/CartSideBar";
 import Search from "./components/Search/Search";
 import { Link } from "react-router-dom";
 import ProductContext from "../../store/ProductContext";
+import { useEffect } from "react";
+import axios from "axios";
+import { url } from "../../const";
+import { ACTIONS } from "../../store/Actions";
 
 const Navbar = () => {
   const productContext = useContext(ProductContext);
@@ -28,6 +32,20 @@ const Navbar = () => {
   const handleShowSearch = (value) => {
     setShowSearch(value);
   };
+
+  useEffect(() => {
+    axios
+      .get(url + "/cart")
+      .then((response) => {
+        productContext.dispatch({
+          type: ACTIONS.GET_ALL_PRODUCTS_CART,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   return (
     <nav className={styles.nav}>
@@ -88,7 +106,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      <Cart showCart={showCart} handleShowCart={handleShowCart} />
+      <CartSideBar showCart={showCart} handleShowCart={handleShowCart} />
       <Search showSearch={showSearch} handleShowSearch={handleShowSearch} />
     </nav>
   );

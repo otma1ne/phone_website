@@ -1,12 +1,14 @@
 import React, { useContext } from "react";
-import styles from "./Cart.module.css";
+import styles from "./CartSideBar.module.css";
 import { ReactComponent as CloseIcon } from "../../../../assets/icons/cross.svg";
 import ProductCard from "../ProductCard/ProductCard";
 import ProductContext from "../../../../store/ProductContext";
+import { useNavigate } from "react-router-dom";
 
-const Cart = ({ showCart, handleShowCart }) => {
+const CartSideBar = ({ showCart, handleShowCart }) => {
   const productContext = useContext(ProductContext);
   const productCart = productContext.state.cart;
+  const navigate = useNavigate();
 
   const totalPrice = () => {
     let totalPrice = 0;
@@ -14,6 +16,11 @@ const Cart = ({ showCart, handleShowCart }) => {
       totalPrice += productCart[i].quantity * productCart[i].price;
     }
     return totalPrice;
+  };
+
+  const handleToCart = () => {
+    navigate("/cart");
+    handleShowCart(false);
   };
   return (
     <>
@@ -51,11 +58,13 @@ const Cart = ({ showCart, handleShowCart }) => {
             <h3>Subtotal</h3>
             <h3>${totalPrice()}</h3>
           </div>
-          <button className="primary_btn">View cart</button>
+          <button className="primary_btn" onClick={handleToCart}>
+            View cart
+          </button>
         </div>
       </div>
     </>
   );
 };
 
-export default Cart;
+export default CartSideBar;

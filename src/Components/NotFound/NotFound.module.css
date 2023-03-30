@@ -1,0 +1,32 @@
+.notfound {
+    margin-top: 91px;
+    padding-bottom: 80px;
+}
+
+.notfound .container {
+    width: 100%;
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.notfound .container .title {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.notfound .container .sub_title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.notfound .container .text {
+    font-size: 14px;
+}
+
+.notfound .container button {
+    margin-top: 20px;
+}

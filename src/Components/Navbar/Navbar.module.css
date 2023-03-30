@@ -85,6 +85,15 @@
 
 @media only screen and (max-width: 992px) {
 
+    .nav .nav_container {
+        display: grid;
+        grid-template-columns: 56px 1fr 56px;
+    }
+
+    .nav .logo {
+        justify-self: center;
+    }
+
     .nav .menu_icon {
         display: block;
     }
@@ -109,7 +118,6 @@
         right: 0;
     }
 
-    .nav .icons .icon_container:nth-child(1),
     .nav .icons .icon_container:nth-child(2) {
         display: none;
     }

@@ -4,6 +4,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Details from "./Components/Details/Details";
 import { ProductContextProvider } from "./store/ProductContext";
+import Cart from "./Components/Cart/Cart";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
   const router = createBrowserRouter([
@@ -15,6 +17,12 @@ function App() {
           <Home />
         </>
       ),
+      errorElement: (
+        <>
+          <Navbar />
+          <NotFound />
+        </>
+      ),
     },
     {
       path: "/details/:id",
@@ -22,6 +30,27 @@ function App() {
         <>
           <Navbar />
           <Details />
+        </>
+      ),
+      errorElement: (
+        <>
+          <Navbar />
+          <NotFound />
+        </>
+      ),
+    },
+    {
+      path: "/cart",
+      element: (
+        <>
+          <Navbar />
+          <Cart />
+        </>
+      ),
+      errorElement: (
+        <>
+          <Navbar />
+          <NotFound />
         </>
       ),
     },

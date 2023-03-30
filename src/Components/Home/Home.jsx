@@ -16,17 +16,6 @@ const Home = () => {
   const productContext = useContext(ProductContext);
   useEffect(() => {
     axios
-      .get(url + "/cart")
-      .then((response) => {
-        productContext.dispatch({
-          type: ACTIONS.GET_ALL_PRODUCTS_CART,
-          payload: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    axios
       .get(url + "/products")
       .then((response) => {
         productContext.dispatch({
