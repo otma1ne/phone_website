@@ -7,6 +7,14 @@ import ProductContext from "../../../../store/ProductContext";
 const Cart = ({ showCart, handleShowCart }) => {
   const productContext = useContext(ProductContext);
   const productCart = productContext.state.cart;
+
+  const totalPrice = () => {
+    let totalPrice = 0;
+    for (let i = 0; i < productCart.length; i++) {
+      totalPrice += productCart[i].quantity * productCart[i].price;
+    }
+    return totalPrice;
+  };
   return (
     <>
       <div
@@ -33,9 +41,18 @@ const Cart = ({ showCart, handleShowCart }) => {
             <CloseIcon width={18} />
           </div>
         </div>
-        {productCart.map((product) => {
-          return <ProductCard product={product} key={product.id} />;
-        })}
+        <div className={styles.container}>
+          {productCart.map((product) => {
+            return <ProductCard product={product} key={product.id} />;
+          })}
+        </div>
+        <div className={styles.footer}>
+          <div className={styles.total}>
+            <h3>Subtotal</h3>
+            <h3>${totalPrice()}</h3>
+          </div>
+          <button className="primary_btn">View cart</button>
+        </div>
       </div>
     </>
   );

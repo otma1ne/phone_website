@@ -2,9 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 import ProductCard2 from "../ProductCard2/ProductCard2";
 import styles from "./TrendingProducts.module.css";
 import ProductContext from "../../../../store/ProductContext";
-import axios from "axios";
-import { url } from "../../../../const";
-import { ACTIONS } from "../../../../store/Actions";
 
 const TrendingProducts = () => {
   const productContext = useContext(ProductContext);
@@ -24,20 +21,6 @@ const TrendingProducts = () => {
     });
     setFiltredProducts(filtredProducts);
   }, [filtre]);
-
-  useEffect(() => {
-    axios
-      .get(url + "/products")
-      .then((response) => {
-        productContext.dispatch({
-          type: ACTIONS.GET_ALL_PRODUCTS,
-          payload: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   return (
     <section className={styles.trending_products}>

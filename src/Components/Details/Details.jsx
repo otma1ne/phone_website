@@ -25,8 +25,41 @@ const Details = () => {
       });
   }, []);
 
-  const handleAddToCart = () => {
-    productContext.dispatch({ type: ACTIONS.ADD_TO_CART, payload: product });
+  const handleAddToCart = (quantity) => {
+    const existingProductIndex = productContext.state.cart.findIndex(
+      (item) => item.id === product.id
+    );
+    if (existingProductIndex !== -1) {
+      const updatedCart = [...productContext.state.cart];
+      updatedCart[existingProductIndex].quantity += quantity;
+      axios
+        .put(url + "/cart/" + product.id, updatedCart[existingProductIndex])
+        .then((response) => {
+          productContext.dispatch({
+            type: ACTIONS.ADD_TO_CART,
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      const newCartItem = {
+        ...product,
+        quantity: quantity,
+      };
+      axios
+        .post(url + "/cart", newCartItem)
+        .then((response) => {
+          productContext.dispatch({
+            type: ACTIONS.ADD_TO_CART,
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   return (
@@ -104,7 +137,12 @@ const Details = () => {
                 </button>
               </div>
             </div>
-            <button className="secondary_btn" onClick={handleAddToCart}>
+            <button
+              className="secondary_btn"
+              onClick={() => {
+                handleAddToCart(quantity);
+              }}
+            >
               Add To Cart
             </button>
           </div>

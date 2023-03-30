@@ -22,6 +22,8 @@
     background: white;
     font-weight: 600;
     transition: .3s ease-in-out;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }
 
 .cart.active {
@@ -43,4 +45,30 @@
 .cart .header .close {
     cursor: pointer;
     padding-top: 5px;
+}
+
+.cart .container {
+    overflow-y: auto;
+}
+
+.cart .footer {
+    border-top: 1px solid #e6e6e6;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+}
+
+.cart .footer .total {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart .footer .total h3 {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.cart .footer button {
+    width: 100%;
 }

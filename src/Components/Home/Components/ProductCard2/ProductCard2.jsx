@@ -7,12 +7,47 @@ import { ReactComponent as FavoriteIcon } from "../../../../assets/icons/favorit
 import { Link } from "react-router-dom";
 import ProductContext from "../../../../store/ProductContext";
 import { ACTIONS } from "../../../../store/Actions";
+import axios from "axios";
+import { url } from "../../../../const";
 
 const ProductCard2 = ({ product }) => {
   const productContext = useContext(ProductContext);
 
-  const handleAddToCart = () => {
-    productContext.dispatch({ type: ACTIONS.ADD_TO_CART, payload: product });
+  const handleAddToCart = (quantity) => {
+    const existingProductIndex = productContext.state.cart.findIndex(
+      (item) => item.id === product.id
+    );
+    if (existingProductIndex !== -1) {
+      const updatedCart = [...productContext.state.cart];
+      updatedCart[existingProductIndex].quantity += quantity;
+      axios
+        .put(url + "/cart/" + product.id, updatedCart[existingProductIndex])
+        .then((response) => {
+          productContext.dispatch({
+            type: ACTIONS.ADD_TO_CART,
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      const newCartItem = {
+        ...product,
+        quantity: quantity,
+      };
+      axios
+        .post(url + "/cart", newCartItem)
+        .then((response) => {
+          productContext.dispatch({
+            type: ACTIONS.ADD_TO_CART,
+            payload: response.data,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
   };
 
   const handleClickQuickView = (value) => {
@@ -52,7 +87,12 @@ const ProductCard2 = ({ product }) => {
         <p>{product.title}</p>
         <h5>${product.price}</h5>
         <Rating readonly size={15} initialValue={3.5} />
-        <button className="secondary_btn" onClick={handleAddToCart}>
+        <button
+          className="secondary_btn"
+          onClick={() => {
+            handleAddToCart(1);
+          }}
+        >
           Add to Cart
         </button>
       </div>

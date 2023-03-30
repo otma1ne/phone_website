@@ -1,18 +1,13 @@
 import { createContext, useReducer } from "react";
 import { ACTIONS } from "./Actions";
+import { url } from "../const";
 
 export const ProductContext = createContext(null);
 
 export const ProductContextProvider = ({ children }) => {
   let initState = {
     products: [],
-    selectedProduct: {
-      id: 6,
-      title: "Apple iPhone 11",
-      image: "/images/products/iphone/iphone3.png",
-      price: 760,
-      category: "Featured Products",
-    },
+    selectedProduct: {},
     showProductModal: false,
     cart: [],
   };
@@ -21,28 +16,28 @@ export const ProductContextProvider = ({ children }) => {
     switch (action.type) {
       case ACTIONS.GET_ALL_PRODUCTS:
         return (state = { ...state, products: action.payload });
+      case ACTIONS.GET_ALL_PRODUCTS_CART:
+        return (state = { ...state, cart: action.payload });
       case ACTIONS.ADD_TO_CART:
-        const existingProductIndex = state.cart.findIndex(
+        const itemIndex = state.cart.findIndex(
           (item) => item.id === action.payload.id
         );
-        if (existingProductIndex !== -1) {
+        if (itemIndex >= 0) {
           const updatedCart = [...state.cart];
-          updatedCart[existingProductIndex].quantity += 1;
+          updatedCart[itemIndex] = {
+            ...updatedCart[itemIndex],
+            quantity: action.payload.quantity,
+          };
           return {
             ...state,
             cart: updatedCart,
           };
         } else {
-          const newCartItem = {
-            ...action.payload,
-            quantity: 1,
-          };
           return {
             ...state,
-            cart: [...state.cart, newCartItem],
+            cart: [...state.cart, action.payload],
           };
         }
-
       case ACTIONS.REMOVE_FROM_CART:
         return (state = {
           ...state,

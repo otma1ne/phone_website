@@ -1,4 +1,8 @@
-import React from "react";
+import axios from "axios";
+import React, { useContext, useEffect } from "react";
+import { url } from "../../const";
+import { ACTIONS } from "../../store/Actions";
+import ProductContext from "../../store/ProductContext";
 import Brands from "./Components/Brands/Brands";
 import Footer from "./Components/Footer/Footer";
 import Hero from "./Components/Hero/Hero";
@@ -9,6 +13,32 @@ import TrendingProducts from "./Components/TrendingProducts/TrendingProducts";
 import UnderPrice from "./Components/UnderPrice/UnderPrice";
 
 const Home = () => {
+  const productContext = useContext(ProductContext);
+  useEffect(() => {
+    axios
+      .get(url + "/cart")
+      .then((response) => {
+        productContext.dispatch({
+          type: ACTIONS.GET_ALL_PRODUCTS_CART,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    axios
+      .get(url + "/products")
+      .then((response) => {
+        productContext.dispatch({
+          type: ACTIONS.GET_ALL_PRODUCTS,
+          payload: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   return (
     <>
       <Hero />

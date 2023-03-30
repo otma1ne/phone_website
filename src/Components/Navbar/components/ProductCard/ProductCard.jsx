@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
         <CloseIcon width={12} />
       </div>
       <div className={styles.product_img}>
-        <img src={"./assets" + product.image} alt="product" />
+        <img src={"/assets" + product.image} alt="product" />
       </div>
       <div className={styles.product_info}>
         <div className={styles.title}>{product.title}</div>

@@ -17,6 +17,13 @@ const ProdcutModal = () => {
       payload: { isShowing: value, product },
     });
   };
+
+  const handleAddToCart = () => {
+    productContext.dispatch({
+      type: ACTIONS.ADD_TO_CART,
+      payload: { product, quantity: 1 },
+    });
+  };
   return (
     <div
       className={`${styles.product_modal} ${showModal ? styles.active : ""} `}
@@ -57,7 +64,9 @@ const ProdcutModal = () => {
               <div className={styles.color}></div>
             </div>
           </div>
-          <button className="secondary_btn">Add To Cart</button>
+          <button className="secondary_btn" onClick={handleAddToCart}>
+            Add To Cart
+          </button>
         </div>
       </div>
     </div>
