@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import styles from "./Hero.module.css";
 import image1 from "../../../../assets/images/VR-Pitfalls.png";
-import image2 from "../../../../assets/images/iphone.webp";
+import image2 from "../../../../assets/images/iphone-13.webp";
+import image3 from "../../../../assets/images/banner-disco-pro.jpg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./swiper_custom.css";
 import "swiper/css";
@@ -74,7 +75,24 @@ const Hero = () => {
               data-aos="fade-up"
               data-aos-delay="300"
             >
-              Iphone 12
+              Iphone 13 Pro
+            </div>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide
+          className={styles.swiper_item}
+          style={{ background: `url(${image3})` }}
+        >
+          <div className={styles.swiper_content}>
+            <div className={`${styles.sub_title} sub_title`} data-aos="fade-up">
+              Latest Collection 2023
+            </div>
+            <div
+              className={`${styles.title} title`}
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              Best Headphone
             </div>
           </div>
         </SwiperSlide>
