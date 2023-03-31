@@ -1,0 +1,31 @@
+.scroll_top {
+    position: fixed;
+    bottom: -40px;
+    right: -100%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    padding: 5px;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+}
+
+.scroll_top.active {
+    bottom: 40px;
+    right: 40px;
+}
+
+.scroll_top svg {
+    fill: black;
+    transition: .3s ease-in-out;
+}
+
+.scroll_top:hover svg {
+    fill: white;
+}
+
+.scroll_top:hover {
+    background: black;
+}
